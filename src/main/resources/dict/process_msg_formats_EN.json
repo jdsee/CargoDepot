@@ -1,0 +1,7 @@
+{
+  "locale": "en",
+  "customerAdded": "Customer '%s' has been added to the customer administration.",
+  "customerRemoved": "Customer '%s' has been removed from the customer administration.",
+  "itemAdded": "New cargo has been added to position '%d'. Owner: '%s'.",
+  "itemRemoved": "Cargo has been removed at position '%d'."
+}

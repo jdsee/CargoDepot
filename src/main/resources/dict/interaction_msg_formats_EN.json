@@ -1,0 +1,14 @@
+{
+  "locale": "en",
+  "addCustomerAttempt": "User attempts to add customer with name '%s'.",
+  "addItemAttempt": "User attempts to add cargo of type '%s' -> owner: '%s', value: %s, duration of storage: %s, hazards: %s, pressurized: %s, fragile: %s.",
+  "removeCustomerAttempt": "User attempts to remove customer '%s'.",
+  "removeItemAttempt": "User attempts to remove cargo at position '%d'.",
+  "relocateItemAttempt": "User attempts to relocate item at position '%d' to position '%d'.",
+  "inspectCargoAttempt": "User attempts to inspect cargo at position '%d'.",
+  "saveItemAttempt": "User attempts to save the item at position '%d'.",
+  "loadItemAttempt": "User attempts to load the item at position '%d'.",
+  "listCargosAttempt": "User attempts to list cargos filtered by type '%s'.",
+  "listCustomersAttempt": "User attempts to list customers.",
+  "listHazardsAttempt": "User attempts to list hazards. Inclusive: %s"
+}

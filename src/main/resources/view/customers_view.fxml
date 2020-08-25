@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.PropertyValueFactory?>
+<?import javafx.scene.layout.*?>
+<VBox xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="htw.prog3.ui.gui.view.CustomersView">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+    <GridPane hgap="10.0" vgap="10.0">
+        <Label style="-fx-font: NORMAL 16 Tahoma;" text="Customers" GridPane.columnIndex="0" GridPane.halignment="LEFT"
+               GridPane.rowIndex="0" GridPane.columnSpan="2" GridPane.valignment="BOTTOM"/>
+
+        <TableView fx:id="customersTable" items="${controller.customersViewModel.customerRecords}"
+                   GridPane.columnSpan="2" GridPane.columnIndex="0" GridPane.rowIndex="1">
+            <columns>
+                <TableColumn fx:id="name_column" minWidth="100" text="Name">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="customer"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="100" text="Stored Cargos">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="assetCount"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <!--<TableColumn minWidth="100" text="Max Value">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="maxValue"/>
+                    </cellValueFactory>
+                </TableColumn>
+                <TableColumn minWidth="100" text="Max Duration of Storage">
+                    <cellValueFactory>
+                        <PropertyValueFactory property="maxDurationOfStorage"/>
+                    </cellValueFactory>
+                </TableColumn>-->
+            </columns>
+            <sortOrder>
+                <fx:reference source="name_column"/>
+            </sortOrder>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
+        </TableView>
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+        <TextField fx:id="nameInput" minWidth="150" promptText="Name"
+                   GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <!--        <TextField fx:id="maxValueInput" promptText="Max Value" prefWidth="150"/>-->
+        <!--        <TextField fx:id="maxDurationOfStorageInput" promptText="Max Duration of Storage" prefWidth="150"/>-->
+        <Button fx:id="addCustomerButton" minWidth="130" onAction="#addCustomer" text="Add Customer"
+                disable="${controller.customersViewModel.addCustomerButtonDisabled}" GridPane.columnIndex="1"
+                GridPane.rowIndex="2"/>
+        <Button fx:id="removeCustomerButton" minWidth="130" onAction="#removeCustomer" text="Remove Customer"
+                disable="${controller.customersViewModel.removeCustomerButtonDisabled}" GridPane.columnIndex="1"
+                GridPane.rowIndex="3"/>
+    </GridPane>
+    <HBox>
+        <Label alignment="BASELINE_CENTER" prefWidth="260" text="${controller.customersViewModel.failureMessage}"
+               style="-fx-text-fill: orangered"/>
+    </HBox>
+</VBox>

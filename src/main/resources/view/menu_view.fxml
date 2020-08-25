@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.*?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="htw.prog3.ui.gui.view.MenuView">
+
+    <MenuBar BorderPane.alignment="CENTER" HBox.hgrow="ALWAYS">
+        <Menu text="File">
+            <Menu text="Save">
+                <MenuItem text="JOS" onAction="#saveJos"/>
+                <MenuItem text="JBP" onAction="#saveJbp"/>
+            </Menu>
+            <Menu text="Load">
+                <MenuItem text="JOS" onAction="#loadJos"/>
+                <MenuItem text="JBP" onAction="#loadJbp"/>
+                <Menu text="By Position">
+                    <MenuItem>
+                        <graphic>
+                            <VBox>
+                                <Label text="Storage Position"/>
+                                <TextField fx:id="storagePositionInput"/>
+                                <Button disable="${controller.viewModel.saveByPositionButtonDisabled}" minWidth="100"
+                                        onAction="#load" text="Load Cargo" wrapText="true"/>
+                            </VBox>
+                        </graphic>
+                    </MenuItem>
+                </Menu>
+            </Menu>
+        </Menu>
+        <Menu text="_Settings">
+            <MenuItem text="Set Capacity (deactivated feature)">
+                <graphic>
+                    <VBox>
+                        <Label text="${controller.viewModel.maxCapacity}" textAlignment="CENTER"
+                               textFill="darkslategrey"/>
+                        <Slider fx:id="capacityInput" max="2000"/>
+                    </VBox>
+                </graphic>
+                <accelerator>
+                    <KeyCodeCombination alt="UP" code="S" control="DOWN" meta="UP" shift="UP" shortcut="UP"/>
+                </accelerator>
+            </MenuItem>
+        </Menu>
+    </MenuBar>
+</HBox>

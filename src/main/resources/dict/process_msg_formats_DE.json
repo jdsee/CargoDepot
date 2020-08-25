@@ -1,0 +1,7 @@
+{
+  "locale": "de",
+  "customerAdded": "Kunde '%s' wurde hinzujefügt.",
+  "customerRemoved": "Kunde '%s' wurde jelöscht.",
+  "itemAdded": "Neuet Frachtstück an Position '%d' einjefügt. Dit jute Stück jehört '%s'.",
+  "itemRemoved": "Dit Frachtstück an Position '%d' wurde jelöscht."
+}

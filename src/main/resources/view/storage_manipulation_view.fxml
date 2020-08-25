@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import htw.prog3.ui.gui.view.StorageManipulationView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import org.controlsfx.control.CheckComboBox?>
+<VBox xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="htw.prog3.ui.gui.view.StorageManipulationView">
+    <GridPane hgap="10.0" vgap="10.0">
+
+        <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+        </padding>
+
+        <TextField fx:id="valueInput" minWidth="100" promptText="Value"
+                   GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+        <HBox GridPane.rowIndex="0" GridPane.columnIndex="0">
+            <Button disable="${controller.storageManipulationViewModel.noItemSelected}" minWidth="100"
+                    onAction="#saveCargo" text="Save Cargo" wrapText="true" alignment="CENTER"/>
+            <Button disable="${controller.storageManipulationViewModel.noItemSelected}" minWidth="100"
+                    onAction="#inspectCargo" text="Inspect Cargo" wrapText="true" alignment="CENTER"/>
+        </HBox>
+        <Label text="Duration of storage in days: " GridPane.rowIndex="1" GridPane.columnIndex="0"
+               textAlignment="RIGHT"/>
+        <Spinner fx:id="durationOfStorageSpinner" minWidth="100"
+                 promptText="Duration of Storage" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <valueFactory>
+                <SpinnerValueFactory.IntegerSpinnerValueFactory max="365" min="1"/>
+            </valueFactory>
+            <tooltip>
+                <Tooltip text="duration of storage in days"/>
+            </tooltip>
+        </Spinner>
+        <ComboBox fx:id="cargoTypeInput" items="${controller.cargoTypes}" minWidth="70" prefWidth="170.0"
+                  GridPane.rowIndex="0" GridPane.columnIndex="2">
+            <promptText>
+                <StorageManipulationView fx:constant="CARGO_TYPE_PROMPT_TEXT"/>
+            </promptText>
+        </ComboBox>
+        <ComboBox fx:id="ownerInput" items="${controller.storageManipulationViewModel.customers}" minWidth="150"
+                  prefWidth="170.0" promptText="Owner"
+                  GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+        <CheckBox fx:id="fragileSelection" text="fragile" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+        <CheckBox fx:id="pressurizedSelection" text="pressurized" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+        <CheckComboBox fx:id="hazardsInput" minWidth="70" prefWidth="170.0" title="Hazards"
+                       GridPane.columnSpan="2" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+        <Button disable="${controller.storageManipulationViewModel.noItemSelected}" minWidth="100"
+                onAction="#removeCargo" text="Remove Cargo" wrapText="true" alignment="BOTTOM_LEFT"
+                GridPane.rowIndex="0" GridPane.columnIndex="5"/>
+        <Button disable="${controller.storageManipulationViewModel.addCargoButtonDisabled}" minWidth="100"
+                onAction="#addCargo"
+                text="Add Cargo" wrapText="true" GridPane.rowIndex="1" GridPane.columnIndex="5"/>
+    </GridPane>
+    <HBox>
+        <Label alignment="BASELINE_CENTER" minWidth="70" prefHeight="27.0"
+               text="${controller.storageManipulationViewModel.failureMessage}" style="-fx-text-fill: orangered"
+               textAlignment="RIGHT"/>
+    </HBox>
+</VBox>

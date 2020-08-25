@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<GridPane xmlns="http://javafx.com/javafx/10.0.2-internal" hgap="10.0" vgap="10.0" xmlns:fx="http://javafx.com/fxml/1"
+          fx:controller="htw.prog3.ui.gui.view.StorageView">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+
+    <Label style="-fx-font: NORMAL 16 Tahoma;" text="Storage" GridPane.columnIndex="0" GridPane.columnSpan="2"
+           GridPane.halignment="LEFT" GridPane.rowIndex="0" GridPane.valignment="BOTTOM"/>
+
+    <TableView items="${controller.storageViewModel.storageItems}"
+               GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="1" fx:id="storageItemsTable">
+        <columns>
+            <TableColumn fx:id="storage_position_column" text="Position">
+                <cellValueFactory>
+                    <PropertyValueFactory property="storagePosition"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Owner">
+                <cellValueFactory>
+                    <PropertyValueFactory property="owner"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Value">
+                <cellValueFactory>
+                    <PropertyValueFactory property="value"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Duration of Storage">
+                <cellValueFactory>
+                    <PropertyValueFactory property="durationOfStorage"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="Hazards">
+                <cellValueFactory>
+                    <PropertyValueFactory property="hazards"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="inspection date">
+                <cellValueFactory>
+                    <PropertyValueFactory property="inspectionDate"/>
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn text="storage date">
+                <cellValueFactory>
+                    <PropertyValueFactory property="storageDate"/>
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+        <sortOrder>
+            <fx:reference source="storage_position_column"/>
+        </sortOrder>
+        <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+        </columnResizePolicy>
+    </TableView>
+    <HBox GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.rowIndex="2">
+        <fx:include fx:id="storageManipulationView" source="storage_manipulation_view.fxml" GridPane.columnIndex="1"/>
+    </HBox>
+</GridPane>

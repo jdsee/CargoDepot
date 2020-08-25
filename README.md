@@ -1,7 +1,6 @@
 # CargoDepot
 CargoDepot is a small educational application for managing cargos and the customers who own them.
-
-Diagram in project root has following name: 'sm_architecture_diagram.pdf'
+The intention of this program was to better understand the Java programming language as well as simple architcture and design pattern.
 
 ### How to run from commandline
 Arguments can be specified in the following exact order:
